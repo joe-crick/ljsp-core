@@ -1,0 +1,1 @@
+export NPM_TOKEN=${CI_JOB_TOKEN}
