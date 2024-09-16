@@ -11,7 +11,7 @@
 Whether you agree that JavaScript is a Lisp or not, you can still harness the Lisp-inspired power of LJSP in your app. LJSP derives most of its functions from Clojure libraries. Clojurians will notice the extent to which we treated the Clojure docs not only as our requirements' specification, but as a great place to copy and paste text for our docs! For this, we offer heart-felt, tremendous thanks to the Clojure community.
 
 For information on how to use LJSP, please visit our official documentation site:
-[LJSP.org](https://www.ljsp.org)
+[LJSP](https://ljsp-docs.vercel.app/)
 
 ## Getting Started
 
