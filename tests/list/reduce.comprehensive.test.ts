@@ -40,7 +40,8 @@ describe("reduce comprehensive tests", function () {
 
   // Test with the reduced$ functionality
   it("should terminate early when the reducer returns a reduced value", function () {
-    const mockFn = jest.fn()
+    const mockFn = jest
+      .fn()
       .mockImplementationOnce((acc: number, cur: number) => acc + cur)
       .mockImplementationOnce((acc: number, cur: number) => reduced(acc + cur))
       .mockImplementationOnce((acc: number, cur: number) => acc + cur);

@@ -18,7 +18,7 @@ describe("contains$ property-based tests", () => {
       fc.assert(
         fc.property(
           fc.array(fc.string()),
-          fc.string().filter(s => s !== "uniqueElement"),
+          fc.string().filter((s) => s !== "uniqueElement"),
           (arr, _) => {
             // Use a unique element that's guaranteed not to be in the array
             const uniqueElement = "uniqueElement";
@@ -53,7 +53,7 @@ describe("contains$ property-based tests", () => {
       fc.assert(
         fc.property(
           fc.dictionary(fc.string(), fc.anything()),
-          fc.string().filter(s => s !== "uniqueKey"),
+          fc.string().filter((s) => s !== "uniqueKey"),
           (obj, _) => {
             // Use a unique key that's guaranteed not to be in the object
             const uniqueKey = "uniqueKey";
@@ -81,7 +81,7 @@ describe("contains$ property-based tests", () => {
     it("should return false if the substring does not exist in the string", () => {
       fc.assert(
         fc.property(
-          fc.string().filter(s => !s.includes("uniqueSubstring")),
+          fc.string().filter((s) => !s.includes("uniqueSubstring")),
           (str) => {
             // Use a unique substring that's guaranteed not to be in the string
             const uniqueSubstring = "uniqueSubstring";
@@ -108,7 +108,7 @@ describe("contains$ property-based tests", () => {
       fc.assert(
         fc.property(
           fc.array(fc.string()),
-          fc.string().filter(s => s !== "uniqueElement"),
+          fc.string().filter((s) => s !== "uniqueElement"),
           (arr, _) => {
             // Use a unique element that's guaranteed not to be in the Set
             const uniqueElement = "uniqueElement";
@@ -124,15 +124,11 @@ describe("contains$ property-based tests", () => {
   describe("maps", () => {
     it("should return true if the key exists in the Map", () => {
       fc.assert(
-        fc.property(
-          fc.array(fc.tuple(fc.string(), fc.anything())),
-          fc.string(),
-          (entries, key) => {
-            // Create a Map with the key
-            const mapWithKey = new Map([...entries, [key, "value"]]);
-            return contains$(mapWithKey, key);
-          }
-        )
+        fc.property(fc.array(fc.tuple(fc.string(), fc.anything())), fc.string(), (entries, key) => {
+          // Create a Map with the key
+          const mapWithKey = new Map([...entries, [key, "value"]]);
+          return contains$(mapWithKey, key);
+        })
       );
     });
 
@@ -140,7 +136,7 @@ describe("contains$ property-based tests", () => {
       fc.assert(
         fc.property(
           fc.array(fc.tuple(fc.string(), fc.anything())),
-          fc.string().filter(s => s !== "uniqueKey"),
+          fc.string().filter((s) => s !== "uniqueKey"),
           (entries, _) => {
             // Use a unique key that's guaranteed not to be in the Map
             const uniqueKey = "uniqueKey";

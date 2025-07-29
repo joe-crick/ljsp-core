@@ -60,13 +60,13 @@ describe("reduce property-based tests", function () {
         // Addition is associative
         // @ts-ignore
         const addFn = (acc, cur) => acc + cur;
-        
+
         // Reduce from left to right
         const leftToRight = reduce(addFn, 0, arr);
-        
+
         // Reduce from right to left
         const rightToLeft = arr.reduceRight((acc, cur) => addFn(cur, acc), 0);
-        
+
         return leftToRight === rightToLeft;
       })
     );

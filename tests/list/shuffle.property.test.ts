@@ -24,30 +24,29 @@ describe("shuffle property-based tests", () => {
     fc.assert(
       fc.property(fc.array(fc.integer()), (arr) => {
         const shuffled = shuffle(arr);
-        
         // Create frequency maps for both arrays
         const originalFreq = new Map();
         const shuffledFreq = new Map();
-        
+
         for (const item of arr) {
           originalFreq.set(item, (originalFreq.get(item) || 0) + 1);
         }
-        
+
         for (const item of shuffled) {
           shuffledFreq.set(item, (shuffledFreq.get(item) || 0) + 1);
         }
-        
+
         // Check if both maps have the same keys and values
         if (originalFreq.size !== shuffledFreq.size) {
           return false;
         }
-        
+
         for (const [key, count] of originalFreq.entries()) {
           if (shuffledFreq.get(key) !== count) {
             return false;
           }
         }
-        
+
         return true;
       })
     );
@@ -58,18 +57,17 @@ describe("shuffle property-based tests", () => {
       fc.property(fc.array(fc.integer()), (arr) => {
         const arrCopy = [...arr];
         shuffle(arr);
-        
         // Check if the original array is unchanged
         if (arr.length !== arrCopy.length) {
           return false;
         }
-        
+
         for (let i = 0; i < arr.length; i++) {
           if (arr[i] !== arrCopy[i]) {
             return false;
           }
         }
-        
+
         return true;
       })
     );
@@ -81,7 +79,6 @@ describe("shuffle property-based tests", () => {
         // For arrays with at least 5 elements, the probability of getting
         // the same permutation by chance is very low
         const shuffled = shuffle(arr);
-        
         // If arrays are identical in content and order, they're not shuffled
         let allSamePosition = true;
         for (let i = 0; i < arr.length; i++) {
@@ -90,7 +87,7 @@ describe("shuffle property-based tests", () => {
             break;
           }
         }
-        
+
         return !allSamePosition;
       })
     );
@@ -100,7 +97,7 @@ describe("shuffle property-based tests", () => {
   it("should handle empty arrays", () => {
     const result = shuffle([]);
     expect(result).toEqual([]);
-    expect(result).not.toBe([]);  // Should be a new array
+    expect(result).not.toBe([]); // Should be a new array
   });
 
   it("should return a copy of the array for single-element arrays", () => {
@@ -108,9 +105,7 @@ describe("shuffle property-based tests", () => {
       fc.property(fc.anything(), (value) => {
         const arr = [value];
         const shuffled = shuffle(arr);
-        return shuffled.length === 1 && 
-               shuffled[0] === value && 
-               shuffled !== arr;
+        return shuffled.length === 1 && shuffled[0] === value && shuffled !== arr;
       })
     );
   });
@@ -120,30 +115,29 @@ describe("shuffle property-based tests", () => {
       fc.property(fc.array(fc.integer({ min: 1, max: 10 }), { minLength: 10 }), (arr) => {
         // This will likely create arrays with duplicate elements
         const shuffled = shuffle(arr);
-        
         // Create frequency maps
         const originalFreq = new Map();
         const shuffledFreq = new Map();
-        
+
         for (const item of arr) {
           originalFreq.set(item, (originalFreq.get(item) || 0) + 1);
         }
-        
+
         for (const item of shuffled) {
           shuffledFreq.set(item, (shuffledFreq.get(item) || 0) + 1);
         }
-        
+
         // Check if both maps have the same keys and values
         if (originalFreq.size !== shuffledFreq.size) {
           return false;
         }
-        
+
         for (const [key, count] of originalFreq.entries()) {
           if (shuffledFreq.get(key) !== count) {
             return false;
           }
         }
-        
+
         return true;
       })
     );

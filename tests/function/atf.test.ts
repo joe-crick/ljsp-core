@@ -72,10 +72,10 @@ describe("async thread first", () => {
           const multiply2 = (x) => x * 2;
           // @ts-ignore
           const subtract3 = (x) => x - 3;
-          
+
           const result = await atf(value, add1, multiply2, subtract3);
           const expected = subtract3(multiply2(add1(value)));
-          
+
           return result === expected;
         })
       );
@@ -90,10 +90,10 @@ describe("async thread first", () => {
           const multiply2 = (x) => x * 2;
           // @ts-ignore
           const asyncSubtract3 = async (x) => x - 3;
-          
+
           const result = await atf(value, asyncAdd1, multiply2, asyncSubtract3);
           const expected = await asyncSubtract3(multiply2(await asyncAdd1(value)));
-          
+
           return result === expected;
         })
       );
@@ -106,10 +106,10 @@ describe("async thread first", () => {
           const asyncUpperCase = async (s) => s.toUpperCase();
           // @ts-ignore
           const addExclamation = (s) => s + "!";
-          
+
           const result = await atf(value, asyncUpperCase, addExclamation);
           const expected = addExclamation(await asyncUpperCase(value));
-          
+
           return result === expected;
         })
       );

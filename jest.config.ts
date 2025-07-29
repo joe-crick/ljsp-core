@@ -6,11 +6,14 @@ const config: Config = {
   rootDir: "tests",
   testPathIgnorePatterns: ["./lib", "./node_modules/", "./dist"],
   transform: {
-    "^.+\\.ts$": ["ts-jest", {
-      useESM: true,
-    }]
+    "^.+\\.ts$": [
+      "ts-jest",
+      {
+        useESM: true
+      }
+    ]
   },
-  extensionsToTreatAsEsm: ['.ts'],
+  extensionsToTreatAsEsm: [".ts"],
   coverageReporters: ["json-summary", "text", "text-summary", "lcov"]
 };
 
