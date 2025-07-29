@@ -3,7 +3,7 @@ import { _eq } from "./internal/_eq";
 import { first } from "../list/first";
 import { second } from "../list/second";
 
-export function deepEq(...rest: Array<any>): boolean {
+export function deepEq$(...rest: Array<any>): boolean {
   return rest.length === 2 ? !_equal(first(rest), second(rest)) : _eq(rest, deepNotEqual);
 }
 

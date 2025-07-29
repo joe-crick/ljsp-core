@@ -1,7 +1,7 @@
-import { everyPred } from "../../lib/conditional";
+import { everyPred$ } from "../../lib/conditional";
 
-describe("everyPred", () => {
-  const isGtZeroIntMultipleTwo = everyPred(
+describe("everyPred$", () => {
+  const isGtZeroIntMultipleTwo = everyPred$(
     (a: unknown) => Number.isInteger(a),
     (a: number) => a > 0,
     (a: number) => a % 2 === 0

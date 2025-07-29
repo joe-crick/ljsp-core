@@ -2,7 +2,7 @@ export { and } from "./and";
 export { cases } from "./cases";
 export { cond, ELSE } from "./cond";
 export { condp } from "./condp";
-export { everyPred } from "./every-pred";
+export { everyPred$ } from "./every-pred$";
 export { ifArray } from "./if-array";
 export { ifBlank } from "./if-blank";
 export { ifClass } from "./if-class";
