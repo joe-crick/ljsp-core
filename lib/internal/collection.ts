@@ -18,7 +18,7 @@ export function Collection(coll: TCollection, clone = true): ICollection {
   }
 
   const type = _getType(coll);
-  let set = not(clone) || typeof coll === BaseTypes.String ? coll : cloneDeep(coll);
+  const set = not(clone) || typeof coll === BaseTypes.String ? coll : cloneDeep(coll);
 
   return new CollectionMap[type](set);
 }
