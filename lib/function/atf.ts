@@ -1,5 +1,5 @@
 import { empty$ } from "../generic";
-import { isAsync } from "../internal/is-async";
+import { async$ } from "../internal/async$";
 import { rest } from "../list";
 
 /**
@@ -26,7 +26,7 @@ async function run(fns: Function[], result: any): Promise<any> {
   }
 
   const [fn] = fns;
-  result = isAsync(fn) ? await fn(result) : fn(result);
+  result = async$(fn) ? await fn(result) : fn(result);
 
   return await run(rest(fns), result);
 }

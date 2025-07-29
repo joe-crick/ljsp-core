@@ -2,7 +2,7 @@ import { cond, ELSE } from "../conditional/cond";
 import { first } from "./first";
 import { empty$ } from "../generic/empty$";
 import { not } from "../generic";
-import { isMultiDimArr } from "../generic/internal/is-multi-dim-arr";
+import { multiDimArr$ } from "../generic/internal/multi-dim-arr$";
 import { maxLenList } from "./max-len-list";
 
 /**
@@ -14,7 +14,7 @@ export function interweave(...rest) {
   // prettier-ignore
   return cond(
     () => empty$(rest), () => undefined,
-    () => not(isMultiDimArr(rest)), () => rest,
+    () => not(multiDimArr$(rest)), () => rest,
     () => rest.length === 1, first(rest),
     ELSE, () => {
       // find the shortest list
