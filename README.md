@@ -33,11 +33,32 @@ YARN `yarn add ljsp-core`
 
 You can install the latest version directly from GitHub:
 
-PNPM `pnpm add github:joe-crick/ljsp-core` (recommended)
+PNPM:
+```bash
+# Using github: prefix (recommended)
+pnpm add github:joe-crick/ljsp-core
 
-NPM `npm install github:joe-crick/ljsp-core`
+# Using git+https URL
+pnpm add git+https://github.com/joe-crick/ljsp-core.git
+```
 
-YARN `yarn add github:joe-crick/ljsp-core`
+NPM:
+```bash
+# Using github: prefix
+npm install github:joe-crick/ljsp-core
+
+# Using git+https URL
+npm install git+https://github.com/joe-crick/ljsp-core.git
+```
+
+YARN:
+```bash
+# Using github: prefix
+yarn add github:joe-crick/ljsp-core
+
+# Using git+https URL
+yarn add git+https://github.com/joe-crick/ljsp-core.git
+```
 
 You can also install a specific branch, commit, or tag:
 

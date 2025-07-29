@@ -11,7 +11,7 @@
 # production
 /server-build
 /release
-/dist
+# /dist - Commented out to include dist directory in the repository for GitHub installations
 
 # misc
 .DS_Store
