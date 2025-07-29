@@ -1,9 +1,9 @@
-import babel from "rollup-plugin-babel";
-import commonjs from "rollup-plugin-commonjs";
-import resolve from "rollup-plugin-node-resolve";
-import typescript from "rollup-plugin-typescript2";
-import { enableDevPlugins } from "./enableDevPlugins";
-import { terser } from "rollup-plugin-terser";
+import babel from "@rollup/plugin-babel";
+import commonjs from "@rollup/plugin-commonjs";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
+import typescript from "@rollup/plugin-typescript";
+import terser from "@rollup/plugin-terser";
+import { enableDevPlugins } from "./enableDevPlugins.js";
 
 export default [
   {
@@ -18,17 +18,13 @@ export default [
     ],
     plugins: [
       ...enableDevPlugins(),
-      resolve({
+      nodeResolve({
         preferBuiltins: true
       }),
       typescript(),
       babel({
-        plugins: [
-          "@babel/plugin-proposal-object-rest-spread",
-          "@babel/plugin-proposal-optional-chaining",
-          "@babel/plugin-syntax-dynamic-import",
-          "@babel/plugin-proposal-class-properties"
-        ],
+        babelHelpers: "bundled",
+        plugins: ["@babel/plugin-syntax-dynamic-import"],
         exclude: ["node_modules/**", "lib", "bin"]
       }),
       commonjs(),

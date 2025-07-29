@@ -1,13 +1,16 @@
-import { Config } from "@jest/types";
+import type { Config } from "jest";
 
-const config: Config.InitialOptions = {
+const config: Config = {
   testEnvironment: "node",
   verbose: true,
   rootDir: "tests",
   testPathIgnorePatterns: ["./lib", "./node_modules/", "./dist"],
   transform: {
-    "^.+\\.ts$": "ts-jest"
+    "^.+\\.ts$": ["ts-jest", {
+      useESM: true,
+    }]
   },
+  extensionsToTreatAsEsm: ['.ts'],
   coverageReporters: ["json-summary", "text", "text-summary", "lcov"]
 };
 

@@ -5,7 +5,7 @@
 [![version][version-badge]][changelog]
 
 [changelog]: CHANGELOG.md
-[version-badge]: https://img.shields.io/badge/version-0.1.8-blue.svg
+[version-badge]: https://img.shields.io/badge/version-0.1.9-blue.svg
 
 # LJSP: Embrace the Lisp in JavaScript!
 Whether you agree that JavaScript is a Lisp or not, you can still harness the Lisp-inspired power of LJSP in your app. LJSP derives most of its functions from Clojure libraries. Clojurians will notice the extent to which we treated the Clojure docs not only as our requirements' specification, but as a great place to copy and paste text for our docs! For this, we offer heart-felt, tremendous thanks to the Clojure community.
@@ -15,9 +15,50 @@ For information on how to use LJSP, please visit our official documentation site
 
 ## Getting Started
 
+This project uses [pnpm](https://pnpm.io/) as the package manager. If you don't have pnpm installed, you can install it by following the instructions on the [pnpm website](https://pnpm.io/installation).
+
+### Installation
+
+#### From NPM Registry
+
+PNPM `pnpm add ljsp-core` (recommended)
+
 NPM `npm i ljsp-core`
 
 YARN `yarn add ljsp-core`
+
+#### From GitHub
+
+You can install the latest version directly from GitHub:
+
+PNPM `pnpm add github:joe-crick/ljsp-core` (recommended)
+
+NPM `npm install github:joe-crick/ljsp-core`
+
+YARN `yarn add github:joe-crick/ljsp-core`
+
+You can also install a specific branch, commit, or tag:
+
+```bash
+# Install from a specific branch
+npm install github:joe-crick/ljsp-core#branch-name
+
+# Install from a specific commit
+npm install github:joe-crick/ljsp-core#commit-hash
+
+# Install from a specific tag
+npm install github:joe-crick/ljsp-core#v0.1.9
+```
+
+### Development
+
+If you're contributing to this project, use these commands:
+
+- Install dependencies: `pnpm install`
+- Build the project: `pnpm run build`
+- Run tests: `pnpm run test:once`
+- Lint code: `pnpm run lint`
+- Format code: `pnpm run prettify:all`
 
 ### USAGE
 

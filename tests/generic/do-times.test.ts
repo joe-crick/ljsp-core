@@ -9,8 +9,8 @@ describe("dotimes", () => {
   it("should send the index to the function in each iteration", () => {
     const mockCallback = jest.fn();
     dotimes(3, mockCallback);
-    expect(mockCallback).toBeCalledWith(0);
-    expect(mockCallback).toBeCalledWith(1);
-    expect(mockCallback).toBeCalledWith(2);
+    expect(mockCallback).toHaveBeenCalledWith(0);
+    expect(mockCallback).toHaveBeenCalledWith(1);
+    expect(mockCallback).toHaveBeenCalledWith(2);
   });
 });
