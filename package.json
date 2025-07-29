@@ -1,6 +1,6 @@
 {
   "name": "ljsp-core",
-  "version": "0.1.9",
+  "version": "2.0.0",
   "description": "A lisp-inspired functional library for javascript programmers",
   "repository": {
     "type": "git",
