@@ -21,6 +21,8 @@ This project uses [pnpm](https://pnpm.io/) as the package manager. If you don't 
 
 #### From NPM Registry
 
+While there is a version of ljsp-core on npm, I don't really publish there anymore. If you want to use ljsp-core, I recommend installing it from GitHub.
+
 PNPM `pnpm add ljsp-core` (recommended)
 
 NPM `npm i ljsp-core`
