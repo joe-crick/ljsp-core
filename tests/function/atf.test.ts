@@ -20,7 +20,7 @@ describe("async thread first", () => {
   it("runs asynchronous functions", async () => {
     // @ts-ignore
     const asyncUpperCase = async (s) => upperCase(s);
-    
+
     expect(
       await atf(
         "a b c d",

@@ -23,31 +23,45 @@ import { reduced$ } from "./reduced$";
  * @param set
  * @returns {*}
  */
-export function reduce(fn: Function, val: any, set: any[]): any {
-  if (void$(set)) {
-    set = val;
+export function reduce(fn: Function, val: any, set?: any[]): any {
+  // Track whether an initial value was provided
+  const initialValueProvided = !void$(set);
+
+  // Ensure set is defined
+  if (!initialValueProvided) {
+    set = val as any[];
     val = first(set);
   }
 
-  const length = iff(void$(set), 0, set.length);
+  // At this point, set is guaranteed to be defined
+  const safeSet = set as any[];
+  const length = iff(void$(safeSet), 0, safeSet.length);
 
-  // If coll has only 1 item, it is returned and `f` is not called
-  if (eq$(length, 1)) {
-    return first(set);
+  // If coll contains no items and no initial value, call fn with no arguments
+  if (eq$(length, 0) && !initialValueProvided) {
+    return fn();
   }
 
-  // If coll contains no items and val is present, returns val and `f` is not called.
-  if (and(eq$(length, 0), !void$(val))) {
+  // If coll contains no items and an initial value is provided, return the initial value
+  if (eq$(length, 0) && initialValueProvided) {
     return val;
   }
 
-  let index = -1;
+  // If coll has only 1 item and no initial value, return the item without calling fn
+  if (eq$(length, 1) && !initialValueProvided) {
+    return first(safeSet);
+  }
 
-  while (lt$(++index, length)) {
+  // Start from index 0 if initial value was provided, otherwise start from index 1
+  // since the first item is already used as the initial value
+  let index = initialValueProvided ? 0 : 1;
+
+  while (lt$(index, length)) {
     if (and(object$(val), reduced$(val))) {
       return val.item;
     }
-    val = fn(val, nth(set, index), true);
+    val = fn(val, nth(safeSet, index));
+    index++;
   }
   return val;
 }
