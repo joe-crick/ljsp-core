@@ -1,7 +1,7 @@
 export { addWatch } from "./add-watch";
 export { dissoc } from "./dissoc";
 export { find } from "./find";
-export { hasOwnProp } from "./has-own-prop";
+export { ownProp$ as hasOwnProp } from "./has-own-prop";
 export { instance$ } from "./instance$";
 export { keys } from "./keys";
 export { M } from "./M";
