@@ -1,4 +1,6 @@
-import { empty$, eq, rest } from "ljsp-core";
+import { empty$ } from "../generic";
+import { isAsync } from "../internal/is-async";
+import { rest } from "../list";
 
 /**
  * Executes a series of functions (synchronously or asynchronously) and returns the final result.
@@ -7,7 +9,7 @@ import { empty$, eq, rest } from "ljsp-core";
  * @param {...Function} fns - An array of functions to be executed. Any async functions must be declared as async.
  * @returns {Promise<any>} - The final result after executing all the functions.
  */
-export async function atf(value, ...fns) {
+export async function atf(value: any, ...fns: Function[]) {
   return await run(fns, value);
 }
 
@@ -18,7 +20,7 @@ export async function atf(value, ...fns) {
  * @param {any} result - The initial value or the result of the previous function.
  * @returns {Promise<any>} - The final result after executing all the functions.
  */
-async function run(fns, result) {
+async function run(fns: Function[], result: any): Promise<any> {
   if (empty$(fns)) {
     return result;
   }
@@ -27,14 +29,4 @@ async function run(fns, result) {
   result = isAsync(fn) ? await fn(result) : fn(result);
 
   return await run(rest(fns), result);
-}
-
-/**
- * Checks if a function is asynchronous (marked as `async`).
- *
- * @param {Function} fn - The function to be checked.
- * @returns {boolean} - `true` if the function is asynchronous, `false` otherwise.
- */
-function isAsync(fn) {
-  return eq(fn.constructor.name, "AsyncFunction");
 }

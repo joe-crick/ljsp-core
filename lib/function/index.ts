@@ -1,4 +1,5 @@
 export { apply } from "./apply";
+export { atf } from "./atf";
 export { comp } from "./comp";
 export { complement } from "./complement";
 export { constantly } from "./constantly";
