@@ -12,3 +12,4 @@ export { titleCase } from "./title-case";
 export { toPath } from "./to-path";
 export { trim } from "./trim";
 export { upperCase } from "./upper-case";
+export { startsWith$ } from "./starts-with";
