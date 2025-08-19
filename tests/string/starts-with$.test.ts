@@ -1,4 +1,4 @@
-import { startsWith$ } from "../../lib/string/starts-with";
+import { startsWith$ } from "../../lib/string/starts-with$";
 import * as fc from "fast-check";
 
 describe("startsWith$", function () {

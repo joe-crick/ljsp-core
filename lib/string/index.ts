@@ -1,3 +1,4 @@
+export { startsWith$ } from "./starts-with$";
 export { blank$ } from "./blank$";
 export { capitalize } from "./capitalize";
 export { escape } from "./escape";
@@ -12,4 +13,3 @@ export { titleCase } from "./title-case";
 export { toPath } from "./to-path";
 export { trim } from "./trim";
 export { upperCase } from "./upper-case";
-export { startsWith$ } from "./starts-with";
