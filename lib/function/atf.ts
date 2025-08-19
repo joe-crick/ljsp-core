@@ -1,6 +1,6 @@
 import { empty$ } from "../generic";
 import { async$ } from "../internal/async$";
-import { rest } from "../list";
+import { rest } from "../list/rest";
 
 /**
  * Executes a series of functions (synchronously or asynchronously) and returns the final result.

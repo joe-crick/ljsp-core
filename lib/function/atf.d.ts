@@ -1,0 +1,1 @@
+export async function atf(value: any, ...fns: Function[]): any

@@ -1,4 +1,3 @@
-export { startsWith$ } from "./starts-with$";
 export { blank$ } from "./blank$";
 export { capitalize } from "./capitalize";
 export { escape } from "./escape";
@@ -6,6 +5,7 @@ export { lowerCase } from "./lower-case";
 export { replace } from "./replace";
 export { replaceFirst } from "./replace-first";
 export { split } from "./split";
+export { startsWith$ } from "./starts-with$";
 export { str } from "./str";
 export { strSpace } from "./str-space";
 export { subs } from "./subs";

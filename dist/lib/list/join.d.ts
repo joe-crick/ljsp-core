@@ -1,0 +1,1 @@
+export declare function join(separator: string, collection: Iterable<any> | ArrayLike<any>): string;

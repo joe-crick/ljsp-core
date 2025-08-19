@@ -39,6 +39,7 @@ export { interweave } from "./interweave";
 export { intersection } from "./intersection";
 export { into } from "./into";
 export { iterator } from "./iterator";
+export { join } from "./join";
 export { keep } from "./keep";
 export { last } from "./last";
 export { lazyMap } from "./lazyMap";
